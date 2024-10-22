@@ -1,6 +1,8 @@
 package com.banking.application.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.banking.application.dto.AccountDto;
@@ -62,6 +64,20 @@ public class AccountServiceImpl implements AccountService {
 		Account saveAccount=accountRepo.save(account);
 		
 		return AccountMapper.mapToAccountDto(saveAccount);
+	}
+
+	@Override
+	public List<AccountDto> getAll() {
+		return accountRepo.findAll().stream().map((account)->AccountMapper.mapToAccountDto(account)).collect(Collectors.toList());
+		
+		
+	}
+
+	@Override
+	public String delete(Long id) {
+		Account account=accountRepo.findById(id).orElseThrow(()->new RuntimeException(" Id Not found"));
+		accountRepo.delete(account);
+		return "Deleted Succesfully";
 	}
 
 }
