@@ -5,16 +5,17 @@ import java.util.List;
 import com.banking.application.dto.AccountDto;
 
 public interface AccountService {
+	
 
 	abstract AccountDto createAccount(AccountDto account);
 
-	AccountDto getAcountById(Long id);
+	abstract AccountDto getAcountById(Long id);
 	
-	AccountDto deposite(Long id,double amount);
-	AccountDto withdraw(Long id,double amount);
+	abstract AccountDto deposite(Long id,double amount);
+	abstract AccountDto withdraw(Long id,double amount);
 	
-	List<AccountDto>getAll();
+	abstract List<AccountDto>getAll();
 	
-	String delete(Long id);
+	abstract String delete(Long id);
 
 }

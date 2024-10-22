@@ -1,10 +1,7 @@
 package com.banking.application.service;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
-
 import com.banking.application.dto.AccountDto;
 import com.banking.application.entity.Account;
 import com.banking.application.mapper.AccountMapper;
